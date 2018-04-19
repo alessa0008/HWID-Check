@@ -76,19 +76,3 @@ int _stdcall AktifRemoteControlDLL(void)
 	CreateThread(0, 0, (LPTHREAD_START_ROUTINE)RemoteControlDLL, 0, 0, 0);
 	return TRUE;
 }
-
-//================================================================================================
-BOOL APIENTRY HWID( HMODULE hModule,DWORD  ul_reason_for_call,LPVOID lpReserved )                 
-{
-    switch (ul_reason_for_call)
-    {
-    case DLL_PROCESS_ATTACH:
-	AktifRemoteControlDLL(); // Cek Aktifasi
-	CheckValidHardwareID();  // Cek HWID
-    case DLL_THREAD_ATTACH:
-    case DLL_THREAD_DETACH:
-    case DLL_PROCESS_DETACH:
-        break;
-    }
-    return TRUE;
-}
