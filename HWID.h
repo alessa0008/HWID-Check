@@ -70,6 +70,13 @@ void __stdcall RemoteControlDLL()
 {
 	ProtectOnline("https://pastebin.com/");
 }
+
+int _stdcall AktifRemoteControlDLL(void)
+{
+	CreateThread(0, 0, (LPTHREAD_START_ROUTINE)RemoteControlDLL, 0, 0, 0);
+	return TRUE;
+}
+
 //================================================================================================
 BOOL APIENTRY HWID( HMODULE hModule,DWORD  ul_reason_for_call,LPVOID lpReserved )                 
 {
